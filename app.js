@@ -8,7 +8,7 @@ var myMiddleware = require('./my_middleware')
 var index = require('./app_modules/index/router')
 var user = require('./app_modules/user/router')
 
-app.use(myMiddleware({option1: 'middleware1', option2: 'middleware2'}))
+app.use(myMiddleware({option1: 'middleware11', option2: 'middleware22'}))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
