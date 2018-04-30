@@ -1,4 +1,5 @@
 var mysql = require('mysql')
+const db_config = require('../db_config')
 
 module.exports = class Connection {
     constructor(table, key = 'id') {
@@ -16,13 +17,7 @@ module.exports = class Connection {
         //     database : 'dauhuthom',
         //     port: '8889'
         // })
-        const db_config = {
-            host     : 'localhost',
-            user     : 'root',
-            password : 'root',
-            database : 'dauhuthom',
-            port: '8889'
-        }
+        const db_config = db_config
 
         const connection = mysql.createConnection(db_config); // Recreate the connection, since
                                                         // the old one cannot be reused.
