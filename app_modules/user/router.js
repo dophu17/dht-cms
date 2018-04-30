@@ -31,51 +31,53 @@ router.get('/', function(req, res, next){
     var cond = []
     var data = {}
 
-    m.find(cond).then(function(result){
-        data.lists = result
-        data.title = 'User page'
-        res.send(data)
-    }).catch(function(error){
-        console.log(error)
-    })
+    // m.findAsync(cond).then(function(result){
+    //     data.lists = result
+    //     data.title = 'User page'
+    //     res.send(data)
+    // }).catch(function(error){
+    //     console.log(error)
+    // })
+
+    m.findAll()
 })
 
 // insert
-router.post('/', function(req, res, next){
-    var m = new model()
-    var inputs = req.body
+// router.post('/', function(req, res, next){
+//     var m = new model()
+//     var inputs = req.body
     
-    m.insert(inputs).then(function(result){
-        console.log(result)
-    }).catch(function(error){
-        console.log(error)
-    })
-})
+//     m.insert(inputs).then(function(result){
+//         console.log(result)
+//     }).catch(function(error){
+//         console.log(error)
+//     })
+// })
 
-// update
-router.put('/:id', function(req, res, next){
-    var m = new model()
-    var inputs = req.body
-    var cond = []
-    cond['id'] = req.params.id
+// // update
+// router.put('/:id', function(req, res, next){
+//     var m = new model()
+//     var inputs = req.body
+//     var cond = []
+//     cond['id'] = req.params.id
 
-    m.update(inputs, cond).then(function(result){
-        console.log(result)
-    }).catch(function(error){
-        console.log(error)
-    })
-})
+//     m.update(inputs, cond).then(function(result){
+//         console.log(result)
+//     }).catch(function(error){
+//         console.log(error)
+//     })
+// })
 
-// delete
-router.delete('/:id', function(req, res, next){
-    var m = new model()
-    var id = req.params.id
+// // delete
+// router.delete('/:id', function(req, res, next){
+//     var m = new model()
+//     var id = req.params.id
 
-    m.delete(id).then(function(result){
-        console.log(result)
-    }).catch(function(error){
-        console.log(error)
-    })
-})
+//     m.delete(id).then(function(result){
+//         console.log(result)
+//     }).catch(function(error){
+//         console.log(error)
+//     })
+// })
 
 module.exports = router
