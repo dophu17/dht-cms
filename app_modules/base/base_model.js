@@ -7,10 +7,23 @@ module.exports = class base_model{
         this.primaryKey = primaryKey
         this.selectFields = '*'
         this.join = ''
+        this.getConnection()
     }
 
     createPool() {
         return mysql.createPool(config.dbConfig)
+    }
+
+    getConnection() {
+        console.log('---Begin check connect---')
+        this.createPool().getConnection((err, connection) => {
+            if (err) {
+                console.log('---Connect error---')
+                throw err
+            }
+            console.log('---Connect success---')
+            console.log('---End check connect---')
+        });
     }
 
     buildWhere(conds) {
