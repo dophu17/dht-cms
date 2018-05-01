@@ -19,6 +19,7 @@ module.exports = class base_model{
         this.createPool().getConnection((err, connection) => {
             if (err) {
                 console.log('---Connect error---')
+                console.log('---End check connect---')
                 throw err
             }
             console.log('---Connect success---')
